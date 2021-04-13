@@ -20,4 +20,8 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.on('/').render('welcome')
+Route.get('/','HomeController.index')
+Route.get('/login', 'AuthController.getLoginPage')
+Route.get('/register', 'AuthController.getRegisterPage')
+Route.post('/login', 'AuthController.login')
+Route.post('/register', 'AuthController.register')

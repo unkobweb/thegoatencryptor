@@ -9,9 +9,6 @@ export default class User extends BaseModel {
   public id: number
 
   @column()
-  public username: string
-
-  @column()
   public email: string
 
   @column()
@@ -19,6 +16,9 @@ export default class User extends BaseModel {
 
   @column()
   public invitation_code_id: number
+
+  @column()
+  public remember_me_token: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

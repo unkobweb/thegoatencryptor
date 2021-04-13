@@ -7,7 +7,8 @@ export default class UserSeeder extends BaseSeeder {
     await User.createMany([
       {
         email: "sieg.alexandre@gmail.com",
-        password: "Azerty49"
+        password: "Azerty49",
+        invitation_code_id: 1
       }
     ])
   }

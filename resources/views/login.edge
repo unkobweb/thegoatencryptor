@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connexion - The Goat Encryptor</title>
+    <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="/space-flight-loop.mp4" type="video/mp4">
+    </video>
+    <div id="container">
+        <div id="logger">
+            <pre>
+                ,--._,--.
+               ,'  ,'   ,-`.
+        (`-.__    /  ,'   /
+        `.   `--'        \__,--'-.
+        `--/       ,-.  ______/
+         (o-.     ,o- /
+          `. ;        \
+           |:          \
+          ,'`       ,   \
+         (o o ,  --'     :
+          \--','.        ;
+           `;;  :       /
+            ;'  ;  ,' ,'
+            ,','  :  '
+            \ \   :
+             `
+                        </pre>
+            <h1>The Goat Encryptor</h1>
+            @if(flashMessages.all() !== null && flashMessages.all().auth !== undefined && flashMessages.all().auth.errors !== undefined)
+                <div id="errorbox">
+                  <ul>
+                    @if(flashMessages.has('auth.errors.uid'))
+                      <li>{{ flashMessages.get('auth.errors.uid') }}</li>
+                    @endif
+                    @if(flashMessages.has('auth.errors.password'))
+                      <li>{{ flashMessages.get('auth.errors.password') }}</li>
+                    @endif
+                  </ul>
+                </div>
+                @endif 
+            <h2>Connexion</h2>
+            
+            <form action="{{ route('AuthController.login') }}" method="POST">
+                {{ csrfField() }}
+                <input type="text" name="email" placeholder="Adresse mail" value="{{flashMessages.get('mail') || ''}}">
+                <input type="password" name="password" placeholder="Mot de passe">
+                <input type="submit" name="submit" value="Envoyer">
+            </form>
+            <span>Pas encore de compte ? <a href="/register">Créez en un</a></span>
+        </div>
+    </div>
+</body>
+</html>
