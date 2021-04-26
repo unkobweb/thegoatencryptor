@@ -10,6 +10,9 @@ export default class RegisterValidator {
 		  rules.email(),
 		  rules.unique({table: "users", column: "email"})
 	  ]),
+	  username: schema.string({ trim: true }, [
+		  rules.unique({table: "users", column: "username"})
+	  ]),
 	  password: schema.string({ trim: true }, [
 		  rules.confirmed(),
 		  rules.minLength(8)
@@ -22,6 +25,8 @@ export default class RegisterValidator {
 	  "email.required": "L'adresse mail est requise",
 	  "email.unique": "L'adresse mail est déjà utilisée",
 	  "email.email": "L'adresse mail doit être valide",
+	  "username.required": "Vous devez renseigner un nom d'utilisateur",
+	  "username.unique": "Ce nom d'utilisateur est déjà utilisé",
 	  "password.required": "Vous devez renseigner un mot de passe",
 	  "password.minLength": "Le mot de passe doit faire minimum 8 caractères",
 	  "password_confirmation.confirmed": "Les deux mots de passes doivent être identiques"

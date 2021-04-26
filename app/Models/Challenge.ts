@@ -17,6 +17,9 @@ export default class Challenge extends BaseModel {
   public label: string
 
   @column()
+  public content: string
+
+  @column()
   public flag: string
 
   @column.dateTime({ autoCreate: true })

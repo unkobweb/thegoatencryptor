@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node ace build --production",
+    "build": "node parcel-bundler.js && node ace build --production",
     "start": "node server.js",
-    "dev": "node ace serve --watch"
+    "dev": "concurrently \"node parcel-bundler.js --watch\" \"node ace serve --watch\""
   },
   "devDependencies": {
     "@adonisjs/assembler": "^3.1.1",
@@ -23,10 +23,21 @@
     "@adonisjs/session": "^4.0.6",
     "@adonisjs/shield": "^4.0.3",
     "@adonisjs/view": "^3.1.0",
+    "@babel/core": "^7.13.16",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/runtime": "^7.13.17",
+    "axios": "^0.21.1",
+    "concurrently": "^6.0.2",
+    "jquery": "^3.6.0",
     "luxon": "^1.26.0",
     "mysql": "^2.18.1",
+    "parcel-bundler": "^1.12.5",
     "phc-argon2": "^1.1.0",
     "proxy-addr": "^2.0.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-toastify": "^7.0.4",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19"
   }

@@ -1,0 +1,19 @@
+@layout('layouts/main')
+
+@section('title')
+Dashboard - The Goat Encryptor
+@endsection
+
+@section('content')
+<h1>Dashboard</h1>
+<div id="container">
+    <div id="top-ten">
+        <h2>Hall of fame</h2>
+        <ul>
+            @each(goat in hallOfFame)
+                <li>{{ goat.username }} - {{ goat.$extras.success_count }}/{{countAllChallenges}}</li>
+            @endeach
+        </ul>
+    </div>
+</div>
+@endsection

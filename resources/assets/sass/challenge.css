@@ -1,0 +1,69 @@
+#content {
+  display: flex;
+  flex-direction: row;
+  max-height: 100vh;
+}
+
+#exercice {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  margin-right: 30px;
+  padding: 30px;
+  overflow: auto;
+}
+
+#infos {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #cfd6db;
+  padding: 30px;
+  margin: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#infos h2 {
+  margin-top: 0;
+}
+
+input {
+  padding: 5px 10px;
+  outline: none;
+  margin: 15px 0px;
+  width: calc(100% - 24px);
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: rgb(0, 175, 0);
+}
+
+#submiter {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+#submitbtn {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 5px 0;
+  width: 100%;
+}
+
+#submitbtn:disabled {
+  cursor: not-allowed;
+}
+
+pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}

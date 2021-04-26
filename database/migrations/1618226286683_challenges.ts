@@ -9,6 +9,7 @@ export default class Challenges extends BaseSchema {
       table.integer('category_id').notNullable()
       table.string('slug').unique().notNullable()
       table.string('label').unique().notNullable()
+      table.text('content').notNullable()
       table.string('flag').unique().notNullable()
       table.timestamps(true)
     })

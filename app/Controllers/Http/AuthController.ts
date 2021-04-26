@@ -32,20 +32,23 @@ export default class AuthController {
         }
     }
 
-    async register({ request, session, response}: HttpContextContract){
-        const {email, password, invitation_code} = request.all()
+    async register({ request, auth, session, response}: HttpContextContract){
+        const {email, username, password, invitation_code} = request.all()
         console.log(request.all())
+        session.flash("mail",email)
+        session.flash("invitation_code", invitation_code)
+        session.flash("username",username)
         try {
             await request.validate(RegisterValidator)
         } catch (error) {
-            console.log(error)
-            session.flash("mail",email)
-            session.flash("invitation_code", invitation_code)
             if (error.messages.email){
                 session.flash("auth.errors.email",error.messages.email)
             }
             if (error.messages.password) {
                 session.flash("auth.errors.password",error.messages.password)
+            }
+            if (error.messages.username) {
+                session.flash("auth.errors.username",error.messages.username)
             }
             const invitation = await InvitationCode.findBy('code',invitation_code)
             if (!invitation || await User.findBy("invitation_code_id",invitation.id)){
@@ -62,11 +65,17 @@ export default class AuthController {
                 invitation_code_id: invitation.id
             })
             await user.save()
-            return response.redirect("/login")
+            await auth.login(user)
+            return response.redirect("/")
         } else {
-            console.log("n'existe pas ou est déjà utilisé")
             session.flash("auth.errors.invitation_code","Ce code d'invitation n'existe pas ou a déjà été utilisé")
             return response.redirect("/register")
         }
+    }
+
+    async logout({ auth, response }){
+        await auth.authenticate()
+        await auth.logout()
+        response.redirect("/login")
     }
 }
