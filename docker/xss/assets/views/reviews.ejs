@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/review.css">
+</head>
+<body>
+    <h1>Reviews</h1>
+    <% reviews.forEach(review => {%>
+        <div class="review">
+            <span class="title">Demande posté le <%= review.posted_at.toLocaleDateString() + " à " + review.posted_at.toLocaleTimeString()%></span>
+            <span class="content"><%- review.content%></span>
+        </div>
+    <%})%>
+    <form action="/reviews" method="POST">
+        <input type="text" name="review" placeholder="review">
+        <input type="submit" value="Envoyer">
+    </form>
+</body>
+</html>
