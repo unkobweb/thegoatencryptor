@@ -10,14 +10,33 @@ export default class ChallengeSeeder extends BaseSeeder {
         slug: "sql-injection",
         label: "Injection SQL",
         flag: "sqlvaccin",
-        content: "Bonjour ceci est un content, c'est quand même bien foutu non ?"
+        content: `Salut,
+
+        Cette fois ci j'ai besoin de toi pour faire tomber une entreprise qui est soupçonnée de mauvais traitement sur ses employés. 
+        
+        Il me faudrait un accès à leur serveur pour pouvoir pirater leurs caméras et récolter des preuves.
+        
+        J'ai vu sur linkedin qu'ils avaient récemment recruté un stagiaire dans leur pôle web, peut être qu'avec le stress celui-ci à fait des erreurs essaye de voir si tu peux me récupérer un mot de passe administrateur, pour le reste, je me débrouillerai.
+        
+        rA9`
       },
       {
         category_id: 1,
         slug: "xxs",
         label: "Faille XSS",
         flag: "promptmyscript",
-        content: "Vous cherchez un développeur de talent ? ça tombe bien je cherche une alternance"
+        content: `Salut,
+
+        On a repéré un petit con qui fait du phishing à tout vas pour pirater le compte Facebook de certaines personnes contre un peu de cryptomonnaies.
+        
+        Ce mec est tellement amoureux de lui même qu'il a une page avis sur son petit site et je suis sur qu'il sera dessus en moins de 10 secondes si tu poste un truc dessus.
+        
+        Je pense que ce gars ne connais que le phishing et qu'il voit pas plus loin que le bout de son nez, essaye de voir si tu peux récupérer son cookie administrateur.
+        
+        Ça nous permettra de deface son site, ça lui fera une petite frayeur et j'espère que ça le calmera.
+        Je sais que t'en est capable.
+        
+        rA9`
       },
       {
         category_id: 2,
