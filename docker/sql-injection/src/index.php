@@ -39,8 +39,7 @@
 
 			$sql = $db->query("SELECT * FROM users WHERE username = '$username' AND pass = '$pass' ");
 		}
-		var_dump($sql);
-		echo($sql != "");
+
 		if (isset($_GET['debug']) and $sql != "")
 		{
 			while($ligne = $sql->fetch(PDO::FETCH_ASSOC)) 
