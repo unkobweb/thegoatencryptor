@@ -67,3 +67,23 @@ pre {
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
+
+#launchDocker {
+  width: 100%;
+  background-color: rgb(51, 211, 91);
+  padding: 7px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: white;
+}
+
+#stopDocker {
+  width: 100%;
+  background-color: rgb(211, 51, 51);
+  padding: 7px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: white;
+}

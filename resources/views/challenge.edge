@@ -11,10 +11,11 @@
 
 @section('extrascript')
 <script src="/challenge.js"></script>
+<script src="/docker.js"></script>
 @endsection
 
 @section('content')
-<div id="exercice" data-id="{{ challenge.id }}">
+<div id="exercice" data-id="{{ challenge.id }}" data-slug="{{ challenge.slug }}">
     <h1>{{ challenge.label }}</h1>
     <pre>{{ challenge.content }}</pre>
     <div id="input"></div>
@@ -24,6 +25,6 @@
     <p>1 - Téléchargez <a href="https://openvpn.net/community-downloads/" target="_blank">OpenVPN</a></p>
     <p>2 - Importez cette <a href="/vpn" target="_blank">configuration</a></p>
     <p>3 - Connectez vous au VPN</p>
-    <p>4 - Attaquez la machine IP</p>
+    <div id="docker"></div>
 </div>
 @endsection

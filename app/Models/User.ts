@@ -3,6 +3,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, column, beforeSave, belongsTo, BelongsTo, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import InvitationCode from './InvitationCode'
 import Success from './Success'
+import Docker from './Docker'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -40,6 +41,12 @@ export default class User extends BaseModel {
     foreignKey: "user_id"
   })
   public success: HasMany<typeof Success>
+
+  @hasMany(() => Docker,{
+    localKey: "id",
+    foreignKey: "user_id"
+  })
+  public dockers: HasMany<typeof Docker>
 
   @beforeSave()
   public static async hashPassword(user: User) {
