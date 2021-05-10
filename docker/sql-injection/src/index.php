@@ -94,7 +94,7 @@
 
 					<?php
 						if (isset($_GET['debug'])) {
-							echo('<input type="hidden" value="'.$_GET['debug'].'" name="debug"');
+							echo('<input type="hidden" value="'.$_GET['debug'].'" name="debug">');
 						}
 					?>
 
