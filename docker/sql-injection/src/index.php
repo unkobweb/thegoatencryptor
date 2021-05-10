@@ -35,7 +35,7 @@
 			$username = $_GET['username'];
 			$pass = $_GET['pass'];
 
-			$db = new PDO('mysql:host=152.228.218.181:3306;dbname=sqlinjection', 'root', '');
+			$db = new PDO('mysql:host=127.0.0.1:3306;dbname=sqlinjection', 'root', '');
 
 			$sql = $db->query("SELECT * FROM users WHERE username = '$username' AND pass = '$pass' ");
 		}
