@@ -80,4 +80,13 @@ export default class DockersController {
         await actualDocker.save()
         response.status(200)
     }
+
+    async killAllOld() {
+        const dockers = await Docker.query().where('destroy_at','<',new Date()).where('is_active',true)
+        dockers.forEach(async docker => {
+            await this.runDockerCmd('kill '+docker.docker_id)
+            docker.is_active = false
+            await docker.save()
+        })
+    }
 }
