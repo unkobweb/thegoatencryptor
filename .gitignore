@@ -6,3 +6,5 @@ coverage
 .env
 tmp
 *.mp4
+
+/docker/src/vendor
