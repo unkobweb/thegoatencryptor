@@ -29,7 +29,7 @@
 -->
 	<?php
 		$sql="";
-
+		
 		if (isset($_GET['submit']))
 		{
 			$username = $_GET['username'];
@@ -40,9 +40,8 @@
 			$sql = $db->query("SELECT * FROM users WHERE username = '$username' AND pass = '$pass' ");
 		}
 
-		if (isset($_GET['debug']))
+		if (isset($_GET['debug']) and $sql != "")
 		{
-			/*echo 'coucou les copains';*/
 			while($ligne = $sql->fetch(PDO::FETCH_ASSOC)) 
 			{
 				echo "<pre>", print_r($ligne),"</pre>";
