@@ -1,17 +1,11 @@
-# Latest Debian
-FROM debian:latest
+FROM node:lts
 
-# Update, Upgrade & install SSH
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y openssh-server
-# Create directory SSH
-RUN mkdir /var/run/sshd && chmod 755 /var/run/sshd
-# Create USER with password
-RUN useradd -m -p hollywood stagiaire
-# Create flag.txt and write data on it
-RUN cd /home/stagiaire/ && touch flag.txt && echo "FL4G-SSH-SUC355" > flag.txt 
+WORKDIR /app
 
-# Port 22
-EXPOSE 22
+ADD . /app
 
-# Start automatically SSH Service
-CMD ["/usr/sbin/sshd", "-D"] 
+RUN npm install
+
+EXPOSE 3333
+
+CMD ["npm","run","build"]
