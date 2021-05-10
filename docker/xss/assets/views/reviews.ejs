@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/review.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/review.css">  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
-    <h1>Reviews</h1>
+    <!--<h1>Reviews</h1>
     <% reviews.forEach(review => {%>
         <div class="review">
             <span class="title">Demande posté le <%= review.posted_at.toLocaleDateString() + " à " + review.posted_at.toLocaleTimeString()%></span>
@@ -18,6 +23,50 @@
     <form action="/reviews" method="POST">
         <input type="text" name="review" placeholder="review">
         <input type="submit" value="Envoyer">
-    </form>
+    </form> -->
+
+<nav class="navbar navbar-expand-sm navbar-dark"> <img src="https://i.imgur.com/CFpa3nK.jpg" width="20" height="20" class="d-inline-block align-top rounded-circle" alt=""> <a class="navbar-brand ml-2" href="#" data-abc="true">xXSasuke45Xx</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="end">
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav">
+                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">My hacks</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Skills</a> </li>
+                <li class="nav-item "> <a class="nav-link" href="#" data-abc="true">BTC account</a> </li>
+                <li class="nav-item active"> <a class="nav-link mt-2" href="#" data-abc="true" id="clicked">Contact<span class="sr-only">(current)</span></a> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Main Body -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+                <h1>Comments</h1>
+                <% reviews.forEach(review => {%>
+                    <div class="comment mt-4 text-justify float-left"> <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40">
+                        <h4>Utilisateur anonyme</h4> <span><%= review.posted_at.toLocaleDateString() + " à " + review.posted_at.toLocaleTimeString()%></span> <br>
+                        <p><%- review.content%></p>
+                    </div>
+                <%})%>
+            </div>
+
+            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                <form action="/reviews" method="POST" id="algin-form">
+                    <div class="form-group">
+                        <h4>Leave a comment</h4> <label for="message">Message</label> <textarea name="review" id="" msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                    </div>
+                    <!-- <div class="form-group"> <label for="name">Name</label> <input type="text" name="name" id="fullname" class="form-control"> </div>
+                    <div class="form-group"> <label for="email">Email</label> <input type="text" name="email" id="email" class="form-control"> </div>
+                    <div class="form-group">
+                        <p class="text-secondary">If you have a <a href="#" class="alert-link">gravatar account</a> your address will be used to display your profile picture.</p>
+                    </div>
+                    <div class="form-inline"> <input type="checkbox" name="check" id="checkbx" class="mr-1"> <label for="subscribe">Subscribe me to the newlettter</label> </div> -->
+                    <div class="form-group"> <button type="submit" id="post" class="btn">Post Comment</button> </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
