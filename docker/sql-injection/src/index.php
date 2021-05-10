@@ -92,6 +92,12 @@
 						</a>
 					</div>
 
+					<?php
+						if (isset($_GET['debug'])) {
+							echo('<input type="hidden" value="'.$_GET['debug'].'" name="debug"');
+						}
+					?>
+
 					<div class="text-center p-t-136">
 						<a class="txt2" href="#">
 							Create your Account
