@@ -9,7 +9,7 @@ export default class ChallengeSeeder extends BaseSeeder {
         category_id: 1,
         slug: "sql-injection",
         label: "Injection SQL",
-        flag: "sqlvaccin",
+        flag: "5QL-1NJ3CT10N-5UCC355",
         content: `Salut,
 
 Cette fois ci j'ai besoin de toi pour faire tomber une entreprise qui est soupçonnée de mauvais traitement sur ses employés. 
@@ -22,9 +22,9 @@ rA9`
       },
       {
         category_id: 1,
-        slug: "xxs",
+        slug: "xss",
         label: "Faille XSS",
-        flag: "promptmyscript",
+        flag: "API-ADMIN-KEY-SUDO-ROOT-SO-STRONG-BRO",
         content: `Salut,
 
 On a repéré un petit con qui fait du phishing à tout vas pour pirater le compte Facebook de certaines personnes contre un peu de cryptomonnaies.
@@ -42,7 +42,7 @@ rA9`
         category_id: 2,
         slug: "weak-ssh",
         label: "SSH fébrile",
-        flag: "ilovemovies",
+        flag: "FL4G-SSH-SUC355",
         content: `Hey, nous avons encore besoin de toi !
 
 Nous avons un de nos clients qui a perdu le mot de passe de son serveur privé !
