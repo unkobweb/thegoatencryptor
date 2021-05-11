@@ -50,7 +50,7 @@ export default class DockersController {
             actualDocker.is_active = false
             await actualDocker.save()
         }
-        const id = await this.runDockerCmd('run -d --rm '+params.slug)        
+        const id = await this.runDockerCmd('run -dit --rm '+params.slug)        
         const ip = (await this.runDockerCmd('inspect '+id))[0].NetworkSettings.IPAddress
 
         const now = new Date()
