@@ -2,6 +2,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import InvitationCode from 'App/Models/InvitationCode'
 import User from 'App/Models/User'
 import RegisterValidator from 'App/Validators/RegisterValidator'
+import base64 from 'base-64'
 
 export default class AuthController {
     getRegisterPage({view}: HttpContextContract){
@@ -61,6 +62,7 @@ export default class AuthController {
         if (invitation && !(await User.findBy("invitation_code_id",invitation.id))){
             let user = await User.create({
                 email: email,
+                username: username,
                 password: password,
                 invitation_code_id: invitation.id
             })
@@ -73,9 +75,44 @@ export default class AuthController {
         }
     }
 
-    async logout({ auth, response }){
+    async logout({ auth, response }: HttpContextContract){
         await auth.authenticate()
         await auth.logout()
         response.redirect("/login")
+    }
+
+    async getInviteCode({response}: HttpContextContract) {
+        function genInvitationCode(length) {
+            let result = '';
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/.$%:!;?';
+            let charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+        const lastUser = await User.query().orderBy('id','desc').limit(1)
+        const lastInviteCode = await InvitationCode.query().orderBy('id','desc').limit(1)
+        if (lastUser[0].invitation_code_id == lastInviteCode[0].id){
+            const inviteCode = await InvitationCode.create({code: genInvitationCode(10)})
+            response.send({
+                type: 'success',
+                encoded: true,
+                code: base64.encode(inviteCode.code)
+            })
+        } else {
+            response.send({
+                type: 'success',
+                encoded: true,
+                code: base64.encode(lastInviteCode[0].code)
+            })
+        }
+    }
+
+    async oldGetInviteCode({response}: HttpContextContract){
+        response.send({
+            type: "error",
+            message: "I PUT it somewhere else"
+        })
     }
 }

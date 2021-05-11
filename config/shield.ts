@@ -94,7 +94,8 @@ export const csrf: ShieldConfig['csrf'] = {
   |
   */
   exceptRoutes: [
-    "/submitFlag"
+    "/submitFlag",
+    "/getInviteCode"
   ],
 
   /*

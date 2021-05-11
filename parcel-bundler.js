@@ -1,5 +1,17 @@
 const Bundler = require('parcel-bundler');
 const path = require("path")
+const fs = require("fs")
+
+function copyToPublic(allPath){
+  allPath.forEach(filepath => {
+    const tempArray = filepath.split("/")
+    const filename = tempArray[tempArray.length-1]
+    fs.copyFileSync(path.resolve(filepath),"./public/"+filename)
+    console.log(`${filename} copied`)
+  })
+}
+
+copyToPublic(["./resources/assets/scripts/invitationcode.js"])
 
 function getFullPath(relativePathArray) {
   const absolutePathArray = []
@@ -23,8 +35,7 @@ const sassFiles = getFullPath([
 ])
 
 const scriptsFiles = getFullPath([
-  "./resources/assets/scripts/*.jsx",
-  "./resources/assets/scripts/*.js"
+  "./resources/assets/scripts/*.jsx"
 ])
 
 const options = {
