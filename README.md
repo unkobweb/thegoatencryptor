@@ -17,5 +17,5 @@ Pour ensuite générer la base de données vous devez lancer :
 ```
 npm install
 node ace migration:run
-node ace migration:rollback
+node ace db:seed
 ```
